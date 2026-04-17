@@ -2,9 +2,8 @@
 
 Implementação do desafio técnico de Front End Angular com foco em aderência ao enunciado: listagem de usuários, filtro reativo, loading e erro, criação e edição em modal, Angular Material, RxJS, Signals e estrutura NgRx para a feature conceitual de To-do.
 
-## Preview da aplicação
+<img width="1508" height="580" alt="image (1)" src="https://github.com/user-attachments/assets/fb7d2ce4-4fad-4694-ace2-44f4e718c9ba" />
 
-![Preview da aplicação](/home/sofia/image (1).png)
 
 ## Objetivo
 
