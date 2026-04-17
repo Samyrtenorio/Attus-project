@@ -1,6 +1,22 @@
 # Attus Angular Challenge
 
-Implementação do desafio técnico de Front End Angular com foco em aderência ao enunciado: listagem de usuários, filtro reativo, loading e erro, criação/edição em modal, Angular Material, RxJS, Signals e estrutura NgRx para a feature conceitual de To-do.
+Implementação do desafio técnico de Front End Angular com foco em aderência ao enunciado: listagem de usuários, filtro reativo, loading e erro, criação e edição em modal, Angular Material, RxJS, Signals e estrutura NgRx para a feature conceitual de To-do.
+
+## Preview da aplicação
+
+![Preview da aplicação](/home/sofia/image (1).png)
+
+## Objetivo
+
+Reproduzir o protótipo proposto no teste técnico com uma aplicação Angular moderna, priorizando:
+
+- organização de código
+- tipagem forte
+- reatividade com RxJS
+- gerenciamento de estado com Signals
+- estrutura NgRx para a feature pedida no enunciado
+- experiência de uso simples e consistente
+- cobertura de testes unitários
 
 ## Stack utilizada
 
@@ -10,50 +26,58 @@ Implementação do desafio técnico de Front End Angular com foco em aderência 
 - Signals para estado local da feature de usuários
 - NgRx (`actions`, `reducer`, `selectors` e `effects`) para a feature To-do
 - Jest para testes unitários
-- Suíte ajustada para cobertura total das unidades medidas
+- TypeScript
 
-## Escopo implementado
+## Funcionalidades implementadas
 
-### Tela de listagem de usuários
-- Cards com nome, e-mail e ação de editar
-- Filtro por nome com debounce de 300ms
-- Estado de loading durante carregamento
-- Mensagem de erro em caso de falha
-- Mock local em serviço
+### Listagem de usuários
+
+- cards com nome, e-mail e ação de edição
+- filtro por nome com debounce de 300ms
+- estado de loading durante carregamento
+- tratamento de erro em caso de falha
+- consumo de dados a partir de serviço mockado
 
 ### Criação e edição de usuário
-- Modal aberto pelo botão flutuante vermelho
-- Formulário reativo com:
+
+- abertura via botão flutuante vermelho
+- modal central para cadastro e edição
+- formulário reativo com os campos:
   - e-mail
   - nome
   - CPF
   - telefone
   - tipo de telefone
-- Mensagens de validação por campo
-- Botão salvar desabilitado quando inválido
-- Preenchimento automático no modo de edição
+- validação por campo com mensagens de erro
+- botão salvar desabilitado enquanto o formulário estiver inválido
+- preenchimento automático dos dados no modo de edição
 
-### Requisitos técnicos
-- Uso real de `debounceTime`, `distinctUntilChanged`, `switchMap` e `catchError`
-- Components standalone
-- Subscriptions gerenciadas com `takeUntilDestroyed`, `take` e streams finitas
-- Estrutura NgRx para a feature To-do solicitada no teste
-- Testes unitários com Jest
+### Requisitos técnicos atendidos
+
+- uso real de operadores RxJS além de `map` e `tap`
+  - `debounceTime(300)`
+  - `distinctUntilChanged()`
+  - `switchMap()`
+  - `catchError()`
+- components standalone
+- subscriptions gerenciadas com `takeUntilDestroyed`, `take` e streams finitas
+- Signals para estado local da feature de usuários
+- estrutura NgRx completa para a feature To-do solicitada no teste
+- testes unitários com Jest
 
 ## Decisões técnicas
 
-### Estado da feature de usuários com Signals
-A tela principal possui um fluxo local e direto. Por isso, o estado de `users`, `loading`, `error` e busca atual foi modelado com Signals para reduzir boilerplate e manter leitura simples.
+### Estado local com Signals
 
-### NgRx implementado na feature To-do
-Para atender ao item 3.2 do teste, a estrutura de NgRx foi implementada com `actions`, `state`, `reducer`, `selectors` e `effects`, mantendo separação clara entre eventos, leitura e efeitos colaterais.
+A feature principal possui fluxo local e objetivo. Por isso, o estado de usuários foi modelado com Signals para reduzir boilerplate e deixar leitura e manutenção mais simples.
 
-### Fluxo de busca com RxJS
-A busca por nome utiliza:
-- `debounceTime(300)` para evitar chamadas excessivas
-- `distinctUntilChanged()` para ignorar repetições
-- `switchMap()` para cancelar a requisição anterior
-- `catchError()` para tratamento de falha sem quebrar a stream
+### NgRx na feature To-do
+
+Para atender ao item específico do desafio, a estrutura de NgRx foi implementada com separação clara entre `actions`, `reducer`, `selectors` e `effects`, seguindo o padrão recomendado.
+
+### Busca reativa com RxJS
+
+A busca foi implementada com debounce e cancelamento de requisições anteriores para evitar chamadas excessivas e race condition, mantendo o comportamento previsível da interface.
 
 ## Estrutura do projeto
 
@@ -73,49 +97,3 @@ src/app
 │   └── validators
 └── store
     └── todo
-```
-
-## Pré-requisitos
-
-- Node.js 20+
-- npm 10+
-
-## Instalação
-
-```bash
-npm install
-```
-
-## Execução local
-
-```bash
-npm start
-```
-
-Aplicação disponível em:
-
-```text
-http://localhost:4200
-```
-
-## Testes
-
-Rodar testes:
-
-```bash
-npm test
-```
-
-Rodar testes com cobertura:
-
-```bash
-npm test
-```
-
-A configuração do Jest foi ajustada para exigir 100% de cobertura global nos arquivos medidos.
-
-## Observações para avaliação
-
-- O mock inicial da tela contém um usuário, em linha com o protótipo apresentado.
-- Para simular falha no carregamento, pesquise pelo termo `erro`.
-- O projeto foi mantido aderente ao escopo do teste, sem telas extras fora do que foi solicitado.
