@@ -1,13 +1,12 @@
 
-# Attus Angular Challenge
+# Attus Angular
 
-Implementação do desafio técnico de Front End Angular com foco em aderência ao enunciado: listagem de usuários, filtro reativo, loading e erro, criação e edição em modal, Angular Material, RxJS, Signals e estrutura NgRx para a feature conceitual de To-do.
 
 <img width="1359" height="572" alt="image" src="https://github.com/user-attachments/assets/2ab9f432-d44e-4925-8793-8492d51fe98d" />
 
 ## Objetivo
 
-Reproduzir o protótipo proposto no teste técnico com uma aplicação Angular moderna, priorizando:
+Reproduzir o protótipo com uma aplicação Angular moderna, priorizando:
 
 - organização de código
 - tipagem forte
